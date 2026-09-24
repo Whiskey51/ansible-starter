@@ -1,0 +1,15 @@
+---
+- name: Gather all STCs
+  hosts: zos
+  gather facts:
+  environment: "{ environment_vars}"
+
+tasks:
+- name: return stcs on zO/S
+ ibm.ibm.zos_core.zos_job_guery:
+register: zos_stcs
+
+- name: Print return info
+ ansible.builtin.debug:
+ var:zos_stcs
+

@@ -11,7 +11,7 @@
       zos_job_submit:
         src: IBMUSER.JCL(HELLO)
         location: DATA_SET
-        wait_time: 60
+        wait_time_s: 60
         return_output: true
       register: job_output
 

@@ -15,10 +15,7 @@
         return_output: true
       register: job_output
 
-    - name: Show job ID and return code
+    - name: Show full raw job details
       debug:
-        msg: "Job {{ job_output.jobs[0].job_id }} completed RC={{ job_output.jobs[0].ret_code.code }}"
+        var: job_output.jobs
 
-    - name: Show spool output
-      debug:
-        msg: "{{ job_output.jobs[0].ddnames | map(attribute='content') | list }}"

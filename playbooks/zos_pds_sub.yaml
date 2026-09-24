@@ -9,12 +9,12 @@
   tasks:
     - name: Submit JCL from existing partitioned or sequential data set
       zos_job_submit:
-        src: "IBMUSER.JCL(HELLO)"
+        src: IBMUSER.JCL(HELLO)
         remote_src: true
         wait_time: 60
         return_output: true
       register: job_output
 
-    - name: Show full raw job details
+    - name: Print raw job output safely
       debug:
-        var: job_output.jobs
+        var: job_output

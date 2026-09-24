@@ -10,7 +10,6 @@
     - name: Submit JCL from existing partitioned or sequential data set
       zos_job_submit:
         src: IBMUSER.JCL(HELLO)
-        remote_src: true
         location: DATA_SET
         wait_time: 60
         return_output: true

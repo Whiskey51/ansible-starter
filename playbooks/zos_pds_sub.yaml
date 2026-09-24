@@ -10,12 +10,11 @@
     - name: Submit JCL from existing partitioned or sequential data set
       zos_job_submit:
         src: "IBMUSER.JCL(HELLO)"
-        location: DATA_SET
-        wait_time_s: 60
+        remote_src: true
+        wait_time: 60
         return_output: true
       register: job_output
 
     - name: Show full raw job details
       debug:
         var: job_output.jobs
-
